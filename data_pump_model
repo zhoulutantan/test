@@ -1,0 +1,28 @@
+class new_treasure_box_daily_report(db.Model):
+    __tablename__ = 'new_treasure_box_daily_report'
+    id = db.Column(db.Integer,autoincrement=True,primary_key=True)
+    date = db.Column(db.Integer)
+    os_type = db.Column(db.String(64))
+    new_treasure_box_page_uv = db.Column(db.Integer)
+    new_treasure_box_consume_uids = db.Column(db.Integer)
+    fst_new_treasure_box_consume_uids = db.Column(db.Integer)
+    luck_draw_cnt = db.Column(db.Integer)
+    open_new_treasure_box_cnt = db.Column(db.Integer)
+    new_treasure_box_consume_coins = db.Column(db.Integer)
+    new_treasure_box_gift_price_coins = db.Column(db.Integer)
+    normal_one_draw_cnt = db.Column(db.Integer)
+    normal_one_draw_uids = db.Column(db.Integer)
+    normal_ten_draw_cnt = db.Column(db.Integer)
+    normal_ten_draw_uids = db.Column(db.Integer)
+    limit_one_draw_cnt = db.Column(db.Integer)
+    limit_one_draw_uids = db.Column(db.Integer)
+    limit_ten_draw_cnt = db.Column(db.Integer)
+    limit_ten_draw_uids = db.Column(db.Integer)
+ 
+ 
+class new_treasure_box_coins_segment_dist_report(db.Model):
+    __tablename__ = 'new_treasure_box_coins_segment_dist_report'
+    id = db.Column(db.Integer,autoincrement=True,primary_key=True)
+    date = db.Column(db.Integer)
+    coins_segment = db.Column(db.Integer)
+    uids = db.Column(db.String(64))
