@@ -1,0 +1,44 @@
+def insert_new_treasure_box_daily_report(key, start_day, end_day):
+    re= util.get_rs_data(key,start_day,end_day)
+    if re['status']=='OK':
+        for line in re['rs_dict']:
+            new_treasure_box_daily_report=models.new_treasure_box_daily_report(
+            date=line.get('date'),
+            os_type = line.get('os_type'),
+            new_treasure_box_page_uv = line.get('new_treasure_box_page_uv'),
+            new_treasure_box_consume_uids = line.get('new_treasure_box_consume_uids'),
+            fst_new_treasure_box_consume_uids = line.get('fst_new_treasure_box_consume_uids'),
+            luck_draw_cnt = line.get('luck_draw_cnt'),
+            open_new_treasure_box_cnt = line.get('open_new_treasure_box_cnt'),
+            new_treasure_box_consume_coins = line.get('new_treasure_box_consume_coins'),
+            new_treasure_box_gift_price_coins = line.get('new_treasure_box_gift_price_coins'),
+            normal_one_draw_cnt = line.get('normal_one_draw_cnt'),
+            normal_one_draw_uids = line.get('normal_one_draw_uids'),
+            normal_ten_draw_cnt = line.get('normal_ten_draw_cnt'),
+            normal_ten_draw_uids = line.get('normal_ten_draw_uids'),
+            limit_one_draw_cnt = line.get('limit_one_draw_cnt'),
+            limit_one_draw_uids = line.get('limit_one_draw_uids'),
+            limit_ten_draw_cnt = line.get('limit_ten_draw_cnt'),
+            limit_ten_draw_uids = line.get('limit_ten_draw_uids'))
+            db.session.add(new_treasure_box_daily_report)
+            try:
+                db.session.commit()
+            except Exception as err:
+                print(err)
+                db.session.rollback()
+ 
+ 
+def insert_new_treasure_box_coins_segment_dist_report(key, start_day, end_day):
+    re= util.get_rs_data(key,start_day,end_day)
+    if re['status']=='OK':
+        for line in re['rs_dict']:
+            new_treasure_box_coins_segment_dist_report=models.new_treasure_box_coins_segment_dist_report(
+            date=line.get('date'),
+            coins_segment =line.get('coins_segment'),
+            uids =line.get('uids'))
+            db.session.add(new_treasure_box_coins_segment_dist_report)
+            try:
+                db.session.commit()
+            except Exception as err:
+                print(err)
+                db.session.rollback()
