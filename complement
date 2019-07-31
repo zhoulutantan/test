@@ -1,0 +1,26 @@
+@manager.option('-s','--start_day',dest='start_day',default=day)
+@manager.option('-e','--end_day',dest='end_day',default=day)
+@manager.option('-f','--func')
+def data_patch(func,start_day,end_day):
+    if func == 'kpi':
+        controllers.insert_daily_kpi_report(cfg.daily_kpi_key,start_day,end_day)
+    elif func == 'month_consume':
+        controllers.insert_month_consume_user_feature_report(cfg.month_consume_user_feature_key,start_day,end_day)
+    elif func == 'live_host_in':
+        controllers.insert_live_host_in_report(cfg.live_host_in_key,start_day,end_day)
+    elif func == 'voice_daily':
+        controllers.insert_voice_daily_report(cfg.voice_daily_key,start_day,end_day)
+    elif func == 'retention':
+        controllers.insert_retention_report(cfg.retention_key,start_day,end_day)
+    elif func == 'new_treasure_box_daily_key':
+        controllers.insert_new_treasure_box_daily_report(cfg.new_treasure_box_daily_key,start_day,end_day)
+    elif func == 'new_treasure_box_coins_segment_dist_key':
+        controllers.insert_new_treasure_box_coins_segment_dist_report(cfg.new_treasure_box_coins_segment_dist_key,start_day,end_day)
+    else:
+        print('key error')
+ 
+ 
+ 
+ 
+python run.py data_patch -f new_treasure_box_daily_key -s 20181024 -e 20181029
+python run.py data_patch -f new_treasure_box_coins_segment_dist_key -s 20181024 -e 20181029
