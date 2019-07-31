@@ -1,0 +1,4 @@
+@manager.command
+def daily_report():
+    controllers.insert_new_treasure_box_daily_report(cfg.new_treasure_box_daily_key,day,day)
+    controllers.insert_new_treasure_box_coins_segment_dist_report(cfg.new_treasure_box_coins_segment_dist_key,day,day)
